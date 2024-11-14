@@ -28,8 +28,19 @@ Dengan begitu filament dapat diinstal.
 
 # Setup Filament
 
-1. Install Panel
+1. Install Panel  
    `php artisan filament:install --panels`  
    catatan : pastikan sudah membuat database dan melakukan migration agar bisa menampilkan panel filament.
-2. Untuk pergi ke dashboard gunakan endpoint `localhost:8000/admin/login`. Untuk membuat user bisa menggunakan command  
+2. Membuat User  
+   Untuk pergi ke dashboard gunakan endpoint `localhost:8000/admin/login`. Untuk membuat user bisa menggunakan command  
    `php artisan make:filament-user`
+
+3. Membuat CRUD  
+   Untuk membuat CRUD, mulai dengan membuat model dan migration terlebih dahulu. Dalam studi kasus ini :  
+   ```php artisan make:model Owner -m```  
+   ```php artisan make:model Patient -m```  
+   ```php artisan make:model Treatment -m```  
+   Siapkan kolom atau tabel yang dibutuhkan, setelah itu lakukan migration.
+
+4. Unguarding Model  
+Unguarding diperlukan agar semua field di model bisa diisi tanpa harus mendefinisikan fillable pada masing-masing model. Caranya adalah dengan menambahkan `Model::unguard()` pada method `boot()` di `app/Providers/AppServiceProvider.php`.
