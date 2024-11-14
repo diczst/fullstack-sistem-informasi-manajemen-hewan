@@ -36,11 +36,15 @@ Dengan begitu filament dapat diinstal.
    `php artisan make:filament-user`
 
 3. Membuat CRUD  
-   Untuk membuat CRUD, mulai dengan membuat model dan migration terlebih dahulu. Dalam studi kasus ini :  
+   3.1 Membuat model dan migration, dalam studi kasus ini :  
    ```php artisan make:model Owner -m```  
    ```php artisan make:model Patient -m```  
    ```php artisan make:model Treatment -m```  
    Siapkan kolom atau tabel yang dibutuhkan, setelah itu lakukan migration.
 
-4. Unguarding Model  
-Unguarding diperlukan agar semua field di model bisa diisi tanpa harus mendefinisikan fillable pada masing-masing model. Caranya adalah dengan menambahkan `Model::unguard()` pada method `boot()` di `app/Providers/AppServiceProvider.php`.
+   3.2 Unguarding Model 
+   Unguarding diperlukan agar semua field di model bisa diisi tanpa harus mendefinisikan fillable pada masing-masing model. Caranya adalah dengan menambahkan `Model::unguard()` pada method `boot()` di 
+   `app/Providers/AppServiceProvider.php`.
+
+4. Membuat Resource
+   Dilakukan dengan perintah `php artisan make:filament-resource Patient`.
