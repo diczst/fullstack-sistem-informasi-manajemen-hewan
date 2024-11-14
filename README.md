@@ -46,5 +46,5 @@ Dengan begitu filament dapat diinstal.
    Unguarding diperlukan agar semua field di model bisa diisi tanpa harus mendefinisikan fillable pada masing-masing model. Caranya adalah dengan menambahkan `Model::unguard()` pada method `boot()` di 
    `app/Providers/AppServiceProvider.php`.
 
-4. Membuat Resource
+   3.3 Membuat Resource
    Dilakukan dengan perintah `php artisan make:filament-resource Patient`.
