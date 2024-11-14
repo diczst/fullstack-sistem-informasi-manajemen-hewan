@@ -9,7 +9,7 @@
 
 Saya berharap kode ini bisa menjadi legacy aka referensi yang dapat digunakan dalam membangun sistem secara fullstack untuk proyek-proyek kedepannya.
 
-# SETUP AWAL
+# SETUP AWAL LARAVEL
 
 ### 1. Instal Livewire
 
