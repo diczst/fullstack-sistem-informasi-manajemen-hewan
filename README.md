@@ -64,6 +64,25 @@ Lanjutan
 3. Generate Secret Key  
 `php artisan jwt:secret`
 
+Catatan:
+Pada dokumentasi resmi jwt https://jwt-auth.readthedocs.io/en/develop/quick-start/ kita akan diarahkan untuk mengubah defaults pada file
+`auth.php` menjadi sebagai berikut :
+```
+'defaults' => [
+    'guard' => 'api',
+    'passwords' => 'users',
+],
+```
+pada projek ini, konfigurasi defaults tidak diubah mengikuti dokumentasi jwt melainkan
+```
+  'defaults' => [
+        'guard' => env('AUTH_GUARD', 'web'),
+        'passwords' => env('AUTH_PASSWORD_BROKER', 'users'),
+    ],
+
+```
+oleh karena itu, jika ingin memanggil `auth()` saja maka tidak bisa, melainkan didefinisikan menjadi `auth('api')`.
+
 ## INSTAL API  
 1. `php artisan install:api`
 
