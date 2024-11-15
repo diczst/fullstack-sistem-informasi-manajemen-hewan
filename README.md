@@ -50,6 +50,5 @@ Dengan begitu filament dapat diinstal.
    Dilakukan dengan perintah `php artisan make:filament-resource Patient`.
 
 4. Lanjutan
-   Ada beberapa fitur lanjutan yang akan sangat membantu dalam pengembangan, misalnya Relation Manager. Relation manager memungkinkan kita untuk menampilkan data yang terkait dengan data tertentu seperti   
-   data dengan relasi one to many seperti satu pasien punya banyak treatmen atau satu owner punya banyak pasien. Relation manager memungkinkan kita untuk menampilkan data-data seperti pasien-pasien milik owner
+   Ada beberapa fitur lanjutan yang akan sangat membantu dalam pengembangan, misalnya Relation Manager. Relation manager memungkinkan kita untuk menampilkan data yang terkait dengan data tertentu seperti data dengan relasi one to many seperti satu pasien punya banyak treatmen atau satu owner punya banyak pasien. Relation manager memungkinkan kita untuk menampilkan data-data seperti pasien-pasien milik owner
    dan kumpulan treamen yang diberikan ke pasien.
