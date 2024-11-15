@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -10,10 +12,12 @@ class AuthController extends Controller
      * Create a new AuthController instance.
      *
      * @return void
+     * Ini berarti middleware auth
+     * akan diterapkan ke semua method dalam controller, kecuali method login.
      */
     public function __construct()
     {
-        $this->middleware('auth:api', ['except' => ['login']]);
+        $this->middleware('auth:api', ['except' => ['login', 'hello']]);
     }
 
     /**
@@ -78,5 +82,13 @@ class AuthController extends Controller
             'token_type' => 'bearer',
             'expires_in' => auth()->factory()->getTTL() * 60
         ]);
+    }
+
+    public function hello()
+    {
+        return response()->json([
+            "code" => 200,
+            'message' => 'Hello',
+        ], 200);
     }
 }
