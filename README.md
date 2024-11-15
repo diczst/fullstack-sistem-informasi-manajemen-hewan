@@ -9,7 +9,7 @@
 
 Saya berharap kode ini bisa menjadi legacy aka referensi yang dapat digunakan dalam membangun sistem secara fullstack untuk proyek-proyek kedepannya.
 
-# SETUP AWAL
+# SETUP AWAL LARAVEL
 
 ### 1. Instal Livewire
 
@@ -36,11 +36,24 @@ Dengan begitu filament dapat diinstal.
    `php artisan make:filament-user`
 
 3. Membuat CRUD  
-   Untuk membuat CRUD, mulai dengan membuat model dan migration terlebih dahulu. Dalam studi kasus ini :  
+   3.1 Membuat model dan migration, dalam studi kasus ini :  
    ```php artisan make:model Owner -m```  
    ```php artisan make:model Patient -m```  
    ```php artisan make:model Treatment -m```  
    Siapkan kolom atau tabel yang dibutuhkan, setelah itu lakukan migration.
 
-4. Unguarding Model  
-Unguarding diperlukan agar semua field di model bisa diisi tanpa harus mendefinisikan fillable pada masing-masing model. Caranya adalah dengan menambahkan `Model::unguard()` pada method `boot()` di `app/Providers/AppServiceProvider.php`.
+   3.2 Unguarding Model 
+   Unguarding diperlukan agar semua field di model bisa diisi tanpa harus mendefinisikan fillable pada masing-masing model. Caranya adalah dengan menambahkan `Model::unguard()` pada method `boot()` di 
+   `app/Providers/AppServiceProvider.php`.
+
+   3.3 Membuat Resource
+   Dilakukan dengan perintah `php artisan make:filament-resource Patient`.
+
+Lanjutan  
+   Ada beberapa fitur lanjutan yang akan sangat membantu dalam pengembangan, misalnya Relation Manager. Relation manager memungkinkan kita untuk menampilkan data yang terkait dengan data tertentu seperti data dengan relasi one to many seperti satu pasien punya banyak treatmen atau satu owner punya banyak pasien. Relation manager memungkinkan kita untuk menampilkan data-data seperti pasien-pasien milik owner
+   dan kumpulan treamen yang diberikan ke pasien. Fitur-fitur ini bisa dipelajari lebih lanjut pada dokumentasi filament.
+
+# Tambahan
+Berikut ini adalah package yang dapat membantu selama proses pengembangan
+1. `composer require flowframe/laravel-trend`
+   Membantu untuk membuat data grafik dari eloquent. Filament bahkan menyarankan ini untuk diinstall jika ingin membuat berbagai grafik di menu dashboard.
