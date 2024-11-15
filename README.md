@@ -58,6 +58,12 @@ Lanjutan
 1. Install JWT  
    `composer require tymon/jwt-auth`
 
+2. Publish Configuration  
+`php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\LaravelServiceProvider"`
+
+3. Generate Secret Key  
+`php artisan jwt:secret`
+
 # Tambahan
 Berikut ini adalah package yang dapat membantu selama proses pengembangan
 1. `composer require flowframe/laravel-trend`
