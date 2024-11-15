@@ -14,6 +14,7 @@ class AuthController extends Controller
      * @return void
      * Ini berarti middleware auth
      * akan diterapkan ke semua method dalam controller, kecuali method login.
+     *
      */
     public function __construct()
     {
