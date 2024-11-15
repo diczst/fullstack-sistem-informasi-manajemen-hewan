@@ -26,7 +26,7 @@ tetapi saya menemukan error saat menjalankan cara ini. Namun, saya menemukan car
 
 Dengan begitu filament dapat diinstal.
 
-# Setup Filament
+# SETUP FILAMENT
 
 1. Install Panel  
    `php artisan filament:install --panels`  
