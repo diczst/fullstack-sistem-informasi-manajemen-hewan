@@ -56,4 +56,4 @@ Lanjutan
 # Tambahan
 Berikut ini adalah package yang dapat membantu selama proses pengembangan
 1. `composer require flowframe/laravel-trend`
-   Membantu untuk membuat data grafik dari eloquent.
+   Membantu untuk membuat data grafik dari eloquent. Filament bahkan menyarankan ini untuk diinstall jika ingin membuat berbagai grafik di menu dashboard.
