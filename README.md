@@ -53,7 +53,7 @@ Lanjutan
    Ada beberapa fitur lanjutan yang akan sangat membantu dalam pengembangan, misalnya Relation Manager. Relation manager memungkinkan kita untuk menampilkan data yang terkait dengan data tertentu seperti data dengan relasi one to many seperti satu pasien punya banyak treatmen atau satu owner punya banyak pasien. Relation manager memungkinkan kita untuk menampilkan data-data seperti pasien-pasien milik owner
    dan kumpulan treamen yang diberikan ke pasien. Fitur-fitur ini bisa dipelajari lebih lanjut pada dokumentasi filament.
 
-# SETUP API DAN JWT
+# SETUP JWT
 
 1. Install JWT  
    `composer require tymon/jwt-auth`
