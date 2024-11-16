@@ -87,7 +87,19 @@ oleh karena itu, jika ingin memanggil `auth()` saja maka tidak bisa, melainkan d
 1. `php artisan install:api`
 
 # SETUP SPATIE (ROLE & PERMISSION)
-
+Bisa mengikuti docs https://spatie.be/docs/laravel-permission/v6/installation-laravel dengan beberapa penyesuaian
+1. Tambahkan ini di `config/app.php`
+``` 
+'providers' => ServiceProvider::defaultProviders()->replace([
+        //
+        Spatie\Permission\PermissionServiceProvider::class
+    ])->toArray(),
+```
+2. Jika tidak menambahkan kode diatas maka perintah
+```
+php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider"
+```
+tidak bisa dijalankan.
 
 # Tambahan
 Berikut ini adalah package yang dapat membantu selama proses pengembangan
