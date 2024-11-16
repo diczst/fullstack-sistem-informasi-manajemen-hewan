@@ -44,13 +44,15 @@ class PatientResource extends Resource
                     ->required()
                     ->maxDate(now()),
 
-                Select::make('owner_id')
-                    ->relationship('owner', 'name')
-                    ->searchable()
+                Select::make('user_id') // Field untuk memilih pengguna dari relasi
+                    ->label('Assigned User')
+                    ->relationship('user', 'name') // Menggunakan relasi `user` dan menampilkan `name`
+                    ->searchable() // Menambahkan fitur pencarian
                     ->preload()
+                    ->required()
                     // bagian ini sebenarnya bisa dihilangkan dan dibuat filament resourcenya tersendiri
                     // namun ini bisa ditambahkan untuk mempermudah user
-                    // bagian ini dihilangkan karena hanya bisa dibuat jika ada user baru dengan role owner mendaftar
+                    // bagian ini dihilangk karena hanya bisa dibuat jika ada user baru dengan role owner mendaftar
                     // ->createOptionForm([
                     //     TextInput::make('name')
                     //         ->required()
@@ -78,7 +80,8 @@ class PatientResource extends Resource
                 Tables\Columns\TextColumn::make('type'),
                 Tables\Columns\TextColumn::make('date_of_birth')
                     ->sortable(),
-                Tables\Columns\TextColumn::make('owner.name')
+                Tables\Columns\TextColumn::make('user.name')
+                    ->label('Owner')
                     ->searchable(),
             ])
             ->filters([
