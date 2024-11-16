@@ -86,6 +86,9 @@ oleh karena itu, jika ingin memanggil `auth()` saja maka tidak bisa, melainkan d
 ## INSTAL API  
 1. `php artisan install:api`
 
+# SETUP SPATIE (ROLE & PERMISSION)
+
+
 # Tambahan
 Berikut ini adalah package yang dapat membantu selama proses pengembangan
 1. `composer require flowframe/laravel-trend`
