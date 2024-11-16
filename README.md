@@ -53,6 +53,39 @@ Lanjutan
    Ada beberapa fitur lanjutan yang akan sangat membantu dalam pengembangan, misalnya Relation Manager. Relation manager memungkinkan kita untuk menampilkan data yang terkait dengan data tertentu seperti data dengan relasi one to many seperti satu pasien punya banyak treatmen atau satu owner punya banyak pasien. Relation manager memungkinkan kita untuk menampilkan data-data seperti pasien-pasien milik owner
    dan kumpulan treamen yang diberikan ke pasien. Fitur-fitur ini bisa dipelajari lebih lanjut pada dokumentasi filament.
 
+# SETUP JWT DAN API
+## INSTAL JWT
+1. Install JWT  
+   `composer require tymon/jwt-auth`
+
+2. Publish Configuration  
+`php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\LaravelServiceProvider"`
+
+3. Generate Secret Key  
+`php artisan jwt:secret`
+
+Catatan:
+Pada dokumentasi resmi jwt https://jwt-auth.readthedocs.io/en/develop/quick-start/ kita akan diarahkan untuk mengubah defaults pada file
+`auth.php` menjadi sebagai berikut :
+```
+'defaults' => [
+    'guard' => 'api',
+    'passwords' => 'users',
+],
+```
+pada projek ini, konfigurasi defaults tidak diubah mengikuti dokumentasi jwt melainkan
+```
+  'defaults' => [
+        'guard' => env('AUTH_GUARD', 'web'),
+        'passwords' => env('AUTH_PASSWORD_BROKER', 'users'),
+    ],
+
+```
+oleh karena itu, jika ingin memanggil `auth()` saja maka tidak bisa, melainkan didefinisikan menjadi `auth('api')`.
+
+## INSTAL API  
+1. `php artisan install:api`
+
 # Tambahan
 Berikut ini adalah package yang dapat membantu selama proses pengembangan
 1. `composer require flowframe/laravel-trend`
