@@ -18,4 +18,6 @@ Route::middleware('api.auth')->group(function () {
 
 Route::post('login',  [AuthController::class, 'login']);
 
-Route::get('patients', [PatientController::class, 'index']);
+Route::middleware('api.auth')->group(function () {
+    Route::get('patients', [PatientController::class, 'index']);
+});

@@ -37,6 +37,9 @@ class RolePermissionSeeder extends Seeder
         Role::create(['name' => 'admin', 'guard_name' => 'api']);
         Role::create(['name' => 'owner', 'guard_name' => 'api']);
 
+        // only for test role/permission access
+        Role::create(['name' => 'guest', 'guard_name' => 'api']);
+
         // Mencari role dengan guard_name yang sesuai
         $admin = Role::findByName('admin', 'api');
         $admin->givePermissionTo(['add-patient', 'edit-patient', 'delete-patient', 'get-patient']);

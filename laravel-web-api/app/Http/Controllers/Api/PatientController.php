@@ -13,12 +13,23 @@ class PatientController extends Controller
      */
     public function index(Request $request)
     {
+        // Ambil user yang sedang login
+        $user = auth('api')->user();
+        // Pengecekan apakah user memiliki permission yang diperlukan
+        if (!$user->can('get-patient', 'api')) {
+            return response()->json([
+                'code' => 403,
+                'message' => 'Anda tidak memiliki izin untuk mengakses data ini.',
+                'data' => null
+            ], 403);
+        }
+
         // Mendapatkan owner_id dari request, jika tidak ada default ke null
-        $ownerId = $request->query('owner_id', null);
+        $userId = $request->query('user_id', null);
 
         // Filter pasien berdasarkan owner_id
-        $patients = Patient::when($ownerId, function ($query, $ownerId) {
-            return $query->where('owner_id', $ownerId);
+        $patients = Patient::when($userId, function ($query, $userId) {
+            return $query->where('user_id', $userId);
         })->get();
 
         return response()->json([

@@ -49,5 +49,11 @@ class DatabaseSeeder extends Seeder
         ]);
         $adminowner->assignRole($admin_role);
         $adminowner->assignRole($owner_role);
+
+        User::create([
+            'name' => 'guest',
+            'email' => 'guest@example.com',
+            'password' => Hash::make('12345678'),
+        ]);
     }
 }
