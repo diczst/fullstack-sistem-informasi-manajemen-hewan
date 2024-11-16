@@ -17,8 +17,9 @@ class JWTAuth
     {
         if (!auth('api')->check()) {
             return response()->json([
-                'success' => false,
+                'code' => Response::HTTP_UNAUTHORIZED,
                 'message' => 'Token is missing, invalid, or expired.',
+                'data' => null
             ], Response::HTTP_UNAUTHORIZED);
         }
 

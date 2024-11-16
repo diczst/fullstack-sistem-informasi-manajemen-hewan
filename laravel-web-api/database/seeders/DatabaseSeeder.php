@@ -36,7 +36,7 @@ class DatabaseSeeder extends Seeder
 
         $owner = User::create([
             'name' => 'owner1',
-            'email' => 'usertwo@example.com',
+            'email' => 'owner1@mail.com',
             'password' => Hash::make('12345678'),
         ]);
         $owner->assignRole($owner_role);
@@ -52,7 +52,7 @@ class DatabaseSeeder extends Seeder
 
         User::create([
             'name' => 'guest',
-            'email' => 'guest@example.com',
+            'email' => 'guest@mail.com',
             'password' => Hash::make('12345678'),
         ]);
     }

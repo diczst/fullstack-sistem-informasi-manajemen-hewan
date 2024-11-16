@@ -11,10 +11,11 @@ class PatientController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function index()
     {
         // Ambil user yang sedang login
         $user = auth('api')->user();
+
         // Pengecekan apakah user memiliki permission yang diperlukan
         if (!$user->can('get-patient', 'api')) {
             return response()->json([
@@ -24,13 +25,14 @@ class PatientController extends Controller
             ], 403);
         }
 
-        // Mendapatkan owner_id dari request, jika tidak ada default ke null
-        $userId = $request->query('user_id', null);
-
-        // Filter pasien berdasarkan owner_id
-        $patients = Patient::when($userId, function ($query, $userId) {
-            return $query->where('user_id', $userId);
-        })->get();
+        // Cek apakah user adalah admin
+        if (!$user->hasRole('admin')) {
+            // Batasi akses hanya pada data milik pengguna saat ini
+            $patients = Patient::where('user_id', $user->id)->get();
+        } else {
+            // Jika admin, tampilkan semua data pasien
+            $patients = Patient::all();
+        }
 
         return response()->json([
             'code' => 200,

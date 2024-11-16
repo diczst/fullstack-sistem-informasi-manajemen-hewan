@@ -20,6 +20,7 @@ class RolePermissionSeeder extends Seeder
         role :
         * admin : add-parient, edit-patient, delete-patient, get-patient
         * owner : get-patient
+        * guest : -
     */
 
     /**
