@@ -50,20 +50,21 @@ class PatientResource extends Resource
                     ->preload()
                     // bagian ini sebenarnya bisa dihilangkan dan dibuat filament resourcenya tersendiri
                     // namun ini bisa ditambahkan untuk mempermudah user
-                    ->createOptionForm([
-                        TextInput::make('name')
-                            ->required()
-                            ->maxLength(255),
-                        TextInput::make('email')
-                            ->label('Email address')
-                            ->email()
-                            ->required()
-                            ->maxLength(255),
-                        TextInput::make('phone')
-                            ->label('Phone number')
-                            ->tel()
-                            ->required(),
-                    ])
+                    // bagian ini dihilangkan karena hanya bisa dibuat jika ada user baru dengan role owner mendaftar
+                    // ->createOptionForm([
+                    //     TextInput::make('name')
+                    //         ->required()
+                    //         ->maxLength(255),
+                    //     TextInput::make('email')
+                    //         ->label('Email address')
+                    //         ->email()
+                    //         ->required()
+                    //         ->maxLength(255),
+                    //     TextInput::make('phone')
+                    //         ->label('Phone number')
+                    //         ->tel()
+                    //         ->required(),
+                    // ])
                     ->required(),
             ]);
     }
