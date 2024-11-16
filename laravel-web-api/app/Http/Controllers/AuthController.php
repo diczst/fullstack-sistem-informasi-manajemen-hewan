@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Utils\HttpStatus;
 use Illuminate\Http\Request;
+use App\utils\ResponseHelper;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
 
@@ -25,8 +28,26 @@ class AuthController extends Controller
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function login()
+    public function login(Request $request)
     {
+        // Check if the account is exists
+        $user = User::where('email', $request->email)->first();
+        if (!$user) {
+            return ResponseHelper::jsonResponse(
+                HttpStatus::NOT_FOUND_404,
+                'Email tidak ditemukan, pastikan email kamu terdaftar.'
+            );
+        }
+
+        // check if the password is correct
+        $credentials = $request->only('email', 'password');
+        if (!$token = auth()->guard('api')->attempt($credentials)) {
+            return ResponseHelper::jsonResponse(
+                HttpStatus::UNAUTHORIZED_401,
+                'Password yang anda masukkan salah, Silakan coba lagi.'
+            );
+        }
+
         $credentials = request(['email', 'password']);
         if (! $token = auth('api')->attempt($credentials)) {
             return response()->json(['error' => 'Unauthorized'], 401);

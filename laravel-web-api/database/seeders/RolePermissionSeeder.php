@@ -9,7 +9,6 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class RolePermissionSeeder extends Seeder
 {
-
     /*
         permission :
         * patients
