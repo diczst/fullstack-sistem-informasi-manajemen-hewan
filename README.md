@@ -10,6 +10,9 @@
 Saya berharap kode ini bisa menjadi legacy aka referensi yang dapat digunakan dalam membangun sistem secara fullstack untuk proyek-proyek kedepannya.
 
 # SETUP AWAL LARAVEL
+Sebelumnya buat proyek laravel mengikuti dokumen resmi dari laravel di sini :  
+https://laravel.com/docs/11.x  
+* starter nya bisa pilih none saja.
 
 ### 1. Instal Livewire
 
