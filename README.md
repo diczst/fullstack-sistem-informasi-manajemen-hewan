@@ -58,7 +58,7 @@ Lanjutan
 
    - untuk membuat fitur export perlu setup notifications terlebih dahulu
      berikut referensi tambahan terkait notificaiton dan export https://laracasts.com/discuss/channels/filament/filament-exporter-action-not-showing-notification-when-export-is-complete
-     
+   - https://github.com/filamentphp/filament/discussions/13264
 
 # SETUP JWT DAN API
 ## INSTAL JWT
