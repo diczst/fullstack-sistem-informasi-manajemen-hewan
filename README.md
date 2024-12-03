@@ -57,6 +57,8 @@ Lanjutan
    dan kumpulan treamen yang diberikan ke pasien. Fitur-fitur ini bisa dipelajari lebih lanjut pada dokumentasi filament.  
 
    - untuk membuat fitur export perlu setup notifications terlebih dahulu
+     berikut referensi tambahan terkait notificaiton dan export https://laracasts.com/discuss/channels/filament/filament-exporter-action-not-showing-notification-when-export-is-complete
+     
 
 # SETUP JWT DAN API
 ## INSTAL JWT
